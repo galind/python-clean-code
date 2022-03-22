@@ -8,6 +8,8 @@
 
 ### PEP 8 (Python Enhancement Proposal)
 
+Class names should be CamelCase (`MyClass`)
+
 ### Pythonic Code
 
 ### The Zen of Python
