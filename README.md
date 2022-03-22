@@ -43,6 +43,32 @@
 
 ### Pythonic Code
 
+* Variable tricks
+* List manipulation (initialization, slicing)
+* Dealing with functions
+* Explicit code
+
+#### Non-Pythonic:
+
+```
+n = 10
+sum_all = 0
+
+for i in range(1, n + 1):
+    sum_all = sum_all + i
+
+print(sum_all)  # 55
+```
+
+#### Pythonic:
+
+```
+n = 10
+sum_all = sum(range(1, n + 1))
+
+print(sum_all)  # 55
+```
+
 ### The Zen of Python
 
 ## Code Principles
