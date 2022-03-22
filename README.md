@@ -8,7 +8,14 @@
 
 ### PEP 8 (Python Enhancement Proposal)
 
-Class names should be CamelCase (`MyClass`)
+#### PEP 8 naming conventions:
+
+* Class names should be CamelCase (`MyClass`)
+* Variable names should be snake_case and all lowercase (`first_name`)
+* Function names should be snake_case and all lowercase (`quick_sort()`)
+* Constants should be snake_case and all uppercase (`PI = 3.14159`)
+* Modules should have short, snake_case names and all lowercase (`numpy`)
+* Single quotes and double quotes are treated the same (just pick one and be consistent)
 
 ### Pythonic Code
 
