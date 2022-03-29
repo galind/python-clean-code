@@ -1,6 +1,5 @@
 # Python Clean Code
 
-- Format test
 * Easy to understand
 * More efficient
 * Easier to maintain, scale, debug and refactor
