@@ -163,6 +163,107 @@ active_user_amount = 55
 
 ## Variables
 
+* Use nouns for variable names
+
+* Use descriptive/intention-revealing names
+
+```
+# This is bad
+c = 5
+d = 12
+
+# This is good
+city_counter = 5
+elapsed_time_in_days = 12
+```
+
+* Use pronounceable names
+
+```
+from datetime import datetime
+
+# This is bad
+genyyyymmddhhmmss = datetime.strptime('04/27/95 07:14:22', '%m/%d/%y %H:%M:%S')
+
+# This is good
+generation_datetime = datetime.strptime('04/27/95 07:14:22', '%m/%d/%y %H:%M:%S')
+```
+
+* Avoid using ambiguous abbreviations
+
+```
+# This is bad
+fna = 'Bob'
+cre_tmstp = 1621535852
+
+# This is good
+first_name = 'Bob'
+creation_timestamp = 1621535852
+```
+
+* Always use the same vocabulary
+
+```
+# This is bad
+client_first_name = 'Bob'
+customer_last_name = 'Smith'
+
+# This is good
+client_first_name = 'Bob'
+client_last_name = 'Smith'
+```
+
+* Don't use "magic numbers"
+
+```
+import random
+
+# This is bad
+def roll():
+    return random.randint(0, 36)  # what is 36 supposed to represent?
+
+# This is good
+ROULETTE_POCKET_COUNT = 36
+
+def roll():
+    return random.randint(0, ROULETTE_POCKET_COUNT)
+
+```
+
+* Use solution domain names
+
+```
+# This is bad
+names = ["Nick", "Mike", "John"]
+
+# This is good
+score_list = [12, 33, 14, 24]
+word_dict = {
+    'a': 'apple',
+    'b': 'banana',
+    'c': 'cherry',
+}
+```
+
+* Don't add redundant context
+
+```
+# This is bad
+class Person:
+    def __init__(self, person_first_name, person_last_name, person_age):
+        self.person_first_name = person_first_name
+        self.person_last_name = person_last_name
+        self.person_age = person_age
+
+
+# This is good
+class Person:
+    def __init__(self, first_name, last_name, age):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.age = age
+```
+
 ## Functions
 
 ## Comments
