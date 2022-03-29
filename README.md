@@ -361,6 +361,62 @@ lowercase_text = lowercase(text)
 
 ## Comments
 
+| Type | Answers | Stakeholder |
+| ---- | ------- | ----------- |
+| Documentation | When and How | Users |
+| Code Comments | Why | Developers |
+| Clean Code | What | Developers |
+
+1. Don't comment bad code, rewrite it
+
+2. Readable code doesn't need comments
+
+```
+# This checks if the user with the given ID doesn't exist.
+if not User.objects.filter(id=user_id).exists():
+    return Response({
+        'detail': 'The user with this ID does not exist.',
+    })
+```
+
+3. Don't add noise comments
+
+```
+numbers = [1, 2, 3, 4, 5]
+
+# This variable stores the average of list of numbers.
+average = sum(numbers) / len(numbers)
+print(average)
+```
+
+4. Use the correct types of comments
+
+```
+def model_to_dict(instance, fields=None, exclude=None):
+    """
+    Returns a dict containing the data in ``instance`` suitable for passing as
+    a Form's ``initial`` keyword argument.
+    ``fields`` is an optional list of field names. If provided, return only the
+    named.
+    ``exclude`` is an optional list of field names. If provided, exclude the
+    named from the returned dict, even if they are listed in the ``fields``
+    argument.
+    """
+    opts = instance._meta
+    data = {}
+    for f in chain(opts.concrete_fields, opts.private_fields, opts.many_to_many):
+        if not getattr(f, 'editable', False):
+            continue
+        if fields is not None and f.name not in fields:
+            continue
+        if exclude and f.name in exclude:
+            continue
+        data[f.name] = f.value_from_object(instance)
+    return data
+```
+
+5. Don't leave commented out code
+
 ## Decorators, Context Managers, Iterators, and Generators
 
 ### Decorators
