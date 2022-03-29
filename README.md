@@ -133,7 +133,33 @@ SOLID is extremely useful when writing OOP code. It talks about splitting your c
 
 ## Code Formatters
 
+Code formatters enforce coding style through automatic formatting and help to achieve and maintain clean code. Most of them allow you to create a style configuration file that you can share with your colleagues.
+
+The most popular Python code formatters are:
+
+* black
+* flake8
+* autopep8
+* yapf
+
+Most modern IDEs also include linters, which run in the background as you type and help to identify small coding mistakes, errors, dangerous code patterns and keep your code formatted. There are two types of linters: logical and stylistic.
+
+The most popular Python linters are:
+
+* Pylint
+* PyFlakes
+* mypy
+
 ## Naming Conventions
+
+```
+# This is bad
+# represents the number of active users
+au = 55
+
+# This is good
+active_user_amount = 55
+```
 
 ## Variables
 
