@@ -163,9 +163,9 @@ active_user_amount = 55
 
 ## Variables
 
-* Use nouns for variable names
+1. Use nouns for variable names
 
-* Use descriptive/intention-revealing names
+2. Use descriptive/intention-revealing names
 
 ```
 # This is bad
@@ -177,7 +177,7 @@ city_counter = 5
 elapsed_time_in_days = 12
 ```
 
-* Use pronounceable names
+3. Use pronounceable names
 
 ```
 from datetime import datetime
@@ -189,7 +189,7 @@ genyyyymmddhhmmss = datetime.strptime('04/27/95 07:14:22', '%m/%d/%y %H:%M:%S')
 generation_datetime = datetime.strptime('04/27/95 07:14:22', '%m/%d/%y %H:%M:%S')
 ```
 
-* Avoid using ambiguous abbreviations
+4. Avoid using ambiguous abbreviations
 
 ```
 # This is bad
@@ -201,7 +201,7 @@ first_name = 'Bob'
 creation_timestamp = 1621535852
 ```
 
-* Always use the same vocabulary
+5. Always use the same vocabulary
 
 ```
 # This is bad
@@ -213,7 +213,7 @@ client_first_name = 'Bob'
 client_last_name = 'Smith'
 ```
 
-* Don't use "magic numbers"
+6. Don't use "magic numbers"
 
 ```
 import random
@@ -230,7 +230,7 @@ def roll():
 
 ```
 
-* Use solution domain names
+7. Use solution domain names
 
 ```
 # This is bad
@@ -245,7 +245,7 @@ word_dict = {
 }
 ```
 
-* Don't add redundant context
+8. Don't add redundant context
 
 ```
 # This is bad
@@ -266,9 +266,9 @@ class Person:
 
 ## Functions
 
-* Use verbs for function names
+1. Use verbs for function names
 
-* Do not use different words for the same concept
+2. Do not use different words for the same concept
 
 ```
 # This is bad
@@ -280,9 +280,9 @@ def get_name(): pass
 def get_age(): pass
 ```
 
-* Write short and simple functions
+3. Write short and simple functions
 
-* Functions should only perfmor a single task
+4. Functions should only perfmor a single task
 
 ```
 # This is bad
@@ -302,7 +302,7 @@ def display_personnel(data):
         print(person)
 ```
 
-* Keep your arguments at a minimum
+5. Keep your arguments at a minimum
 
 ```
 # This is bad
@@ -329,7 +329,7 @@ def render_blog_post(blog_post):
 render_blog_post(blog_post1)
 ```
 
-* Don't use flags in functions
+6. Don't use flags in functions
 
 ```
 text = "This is a cool blog post."
@@ -357,7 +357,7 @@ uppercase_text = uppercase(text)
 lowercase_text = lowercase(text)
 ```
 
-* Avoid side effects
+7. Avoid side effects
 
 ## Comments
 
