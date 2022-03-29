@@ -266,6 +266,99 @@ class Person:
 
 ## Functions
 
+* Use verbs for function names
+
+* Do not use different words for the same concept
+
+```
+# This is bad
+def get_name(): pass
+def fetch_age(): pass
+
+# This is good
+def get_name(): pass
+def get_age(): pass
+```
+
+* Write short and simple functions
+
+* Functions should only perfmor a single task
+
+```
+# This is bad
+def fetch_and_display_personnel():
+    data = # ...
+
+    for person in data:
+        print(person)
+
+
+# This is good
+def fetch_personnel():
+    return # ...
+
+def display_personnel(data):
+    for person in data:
+        print(person)
+```
+
+* Keep your arguments at a minimum
+
+```
+# This is bad
+def render_blog_post(title, author, created_timestamp, updated_timestamp, content):
+    # ...
+
+render_blog_post("Clean code", "Nik Tomazic", 1622148362, 1622148362, "...")
+
+
+# This is good
+class BlogPost:
+    def __init__(self, title, author, created_timestamp, updated_timestamp, content):
+        self.title = title
+        self.author = author
+        self.created_timestamp = created_timestamp
+        self.updated_timestamp = updated_timestamp
+        self.content = content
+
+blog_post1 = BlogPost("Clean code", "Nik Tomazic", 1622148362, 1622148362, "...")
+
+def render_blog_post(blog_post):
+    # ...
+
+render_blog_post(blog_post1)
+```
+
+* Don't use flags in functions
+
+```
+text = "This is a cool blog post."
+
+
+# This is bad
+def transform(text, uppercase):
+    if uppercase:
+        return text.upper()
+    else:
+        return text.lower()
+
+uppercase_text = transform(text, True)
+lowercase_text = transform(text, False)
+
+
+# This is good
+def uppercase(text):
+    return text.upper()
+
+def lowercase(text):
+    return text.lower()
+
+uppercase_text = uppercase(text)
+lowercase_text = lowercase(text)
+```
+
+* Avoid side effects
+
 ## Comments
 
 ## Decorators, Context Managers, Iterators, and Generators
