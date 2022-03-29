@@ -421,12 +421,121 @@ def model_to_dict(instance, fields=None, exclude=None):
 
 ### Decorators
 
+Decorators are an extremely powerful tool in Python, which allows us to add some custom functionality to a function. At its core, they are just functions called inside functions. By using them we take advantage of the SoC (Separation of concerns) principle and make our code more modular. Learn them and you'll be on your way to Pythonic code!
+
+```
+def ask_for_passcode(func):
+    def inner():
+        print('What is the passcode?')
+        passcode = input()
+
+        if passcode != '1234':
+            print('Wrong passcode.')
+        else:
+            print('Access granted.')
+            func()
+
+    return inner
+
+
+@ask_for_passcode
+def start():
+    print("Server has been started.")
+
+
+@ask_for_passcode
+def end():
+    print("Server has been stopped.")
+
+
+start()  # decorator will ask for password
+end()  # decorator will ask for password
+```
+
 ### Context Managers
+
+Context managers simplify how we interact with external resources, like files and databases. The most common usage is the `with` statement. The good thing about them is that they automatically deallocate memory outside of their block.
+
+```
+with open('wisdom.txt', 'w') as opened_file:
+    opened_file.write('Python is cool.')
+
+# opened_file has been closed.
+```
+
+Without a context manager our code would look like this:
+
+```
+file = open('wisdom.txt', 'w')
+try:
+    file.write('Python is cool.')
+finally:
+    file.close()
+```
 
 ### Iterators
 
+An iterator is an object that contains a countable number of values. Iterators allow an object to be iterated upon, which means that you can traverse through all the values.
+
+```
+names = ["Mike", "John", "Steve"]
+names_iterator = iter(names)
+
+for i in range(len(names)):
+    print(next(names_iterator))
+```
+
+```
+names = ["Mike", "John", "Steve"]
+
+for name in names:
+    print(name)
+```
+
 ### Generators
+
+A generator is a function in Python which returns an iterator object instead of one single value. The main difference between normal functions and generators is that generators use the `yield` keyword instead of `return`. Each next value in the iterator is fetched using `next(generator)`.
+
+```
+def multiple_generator(x, n):
+    for i in range(1, n + 1):
+        yield x * i
+
+multiples_of_5 = multiple_generator(5, 3)
+print(next(multiples_of_5))  # 5
+print(next(multiples_of_5))  # 10
+print(next(multiples_of_5))  # 15
+```
 
 ## Modularity and Classes
 
+In order to keep your code as organized as possible, you should split it into multiple files which are then split up into different directories. If you're writing code in an OOP-oriented language you should also follow basic OOP principles like encapsulation, abstraction, inheritance, and polymorphism.
+
+Splitting code into multiple classes will make your code easier to understand and maintain. There is no fixed rule on how long a file or a class should be, but try your best to keep them small (preferably under 200 lines).
+
+Django's default project structure is a good example of how your code should be structured:
+
+```
+awesomeproject/
+├── main/
+│   ├── __init__.py
+│   ├── asgi.py
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
+├── blog/
+│   ├── migrations/
+│   │   └── __init__.py
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── models.py
+│   ├── tests.py
+│   ├── urls.py
+│   └── views.py
+└── templates
+```
+
 ## Testing
+
+Quality software doesn't come without tests. Testing software allows us to discover bugs and errors in the software before it is deployed. Tests are of the same importance as production code and you should spend a fair amount of time working on them.
